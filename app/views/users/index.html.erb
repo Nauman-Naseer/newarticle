@@ -1,0 +1,23 @@
+<% @user.each  do |u| %>
+<div class="well well-lg">
+<div>
+  <%= u.name%>
+</div>
+  <div>
+  <%= u.email%>
+  </div>
+  <div>
+  <%= link_to("Edit", edit_user_path(u),class: "btn btn-default") %>
+    <%= link_to("delete", user_path(u),method: :delete ,data: {confirm: "Are you sure?"},class:"btn btn-danger") %>
+
+
+  </div>
+
+  <span>
+  <%= time_ago_in_words(u.created_at)%>
+    ago </span>
+</div>
+
+<% end %>
+<%= will_paginate @user %>
+

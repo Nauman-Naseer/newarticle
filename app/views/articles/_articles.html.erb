@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+    <% obj.each do |art| %>
+        <div class="well well-lg">
+
+          <div class="row">
+
+
+            <label class="text-center col-md-12 ">
+
+              <%= art.name %>
+
+            </label>
+
+
+          </div>
+
+          <div class="row">
+            <label class="col-sm-2">
+
+              Description
+            </label>
+          </div>
+          <div>
+            <p class="lead">
+              <%= truncate(art.des , :length=>20 ) %>
+            </p>
+<span><%= time_ago_in_words(art.created_at)%>
+  ago</span>
+          </div>
+
+
+          <%= link_to "Edit", edit_article_path(art),class: "btn btn-default" %>
+          <%= link_to "show", article_path(art),class: "btn btn-default" %>
+          <%= link_to "Delete", article_path(art) ,method: :delete,data:{confirm: "Are you  sure"},class: "btn btn-danger" %>
+
+
+        </div>
+
+
+    <% end%>
+  </div>
+
+</div>
