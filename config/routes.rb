@@ -5,6 +5,10 @@ resources :articles
 get 'signup' =>"users#new"
 resources :users, :except=>[:new]
 root 'articles#index'
+  get 'login' =>"sessions#new"
+  post 'login' =>"sessions#create"
+  get 'logout' =>"sessions#destroy"
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
 
