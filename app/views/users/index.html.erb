@@ -7,9 +7,10 @@
   <%= u.email%>
   </div>
   <div>
+    <% if logged_in? && current_user==u ||current_user.admin?%>
   <%= link_to("Edit", edit_user_path(u),class: "btn btn-default") %>
     <%= link_to("delete", user_path(u),method: :delete ,data: {confirm: "Are you sure?"},class:"btn btn-danger") %>
-
+<%end %>
 
   </div>
 
