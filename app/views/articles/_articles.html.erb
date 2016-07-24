@@ -36,8 +36,19 @@
           <%= link_to "Delete", article_path(art) ,method: :delete,data:{confirm: "Are you  sure"},class: "btn btn-danger" %>
 
 <% end %>
-        </div>
 
+        <div class="row">
+          <% art.catagories.each do |c| %>
+
+        <label class="col-sm-12">
+          <%= link_to :"#{c.name}" ,catagory_path(c) ,class:"cat-class" %>
+
+          </label>
+
+          <% end %>
+
+        </div>
+        </div>
 
     <% end%>
   </div>

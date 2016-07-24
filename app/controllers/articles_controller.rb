@@ -62,7 +62,7 @@ end
 
   end
   def article_params
-    params.require(:article).permit(:name,:des);
+    params.require(:article).permit(:name,:des,catagory_ids: []);
   end
   def set_article
     @article=Article.find(params[:id]);
@@ -76,7 +76,7 @@ if (logged_in? !=true)
 
 end
 def require_same_user
- if(current_user!=@article.user)
+ if(current_user!=@article.user) && !current_user.admin
 flash[:notice]="not same User";
    redirect_to root_path
  end

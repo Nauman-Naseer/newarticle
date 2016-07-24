@@ -25,6 +25,19 @@
 
           </ul>
         </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catagories <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <% Catagory.all.each do |cat| %>
+            <li><%=link_to "#{cat.name}" ,catagory_path(cat) %></li>
+            <%end %>
+          </ul>
+        </li>
+        <% if (logged_in? ==true )&& (current_user.admin ==true)  %>
+        <li ><%= link_to "New Catagory",new_catagory_path %></li>
+
+          <% end%>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

@@ -52,7 +52,7 @@ if (logged_in? ==false)
 end
   end
   def same_user
-    if current_user!=@user
+    if current_user!=@user && !current_user.admin?
       redirect_to root_path
     end
   end
